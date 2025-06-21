@@ -17,16 +17,18 @@ months = st.number_input("Months", min_value=0, max_value=11, value=0)
 if st.button("Calculate"):
     calc = FlatInterestLoanCalculator(principal, rate, years, months)
     df, total_payment, total_interest = calc.calculate_schedule()
+    emi = calc.calculate_emi()
 
     st.session_state.df = df
+    st.session_state.emi = emi
     st.session_state.total_interest = total_interest
     st.session_state.total_payment = total_payment
 
 # Show results
 if "df" in st.session_state:
-    st.markdown(f"#### Total Interest: ₹{st.session_state.total_interest}")
-    st.markdown(f"#### Total Payment: ₹{st.session_state.total_payment}")
-    st.markdown(f"#### Monthly EMI (if needed): ₹{st.session_state.total_payment}")
+    st.markdown(f"##### Total Interest: ₹{st.session_state.total_interest}")
+    st.markdown(f"##### Total Payment: ₹{st.session_state.total_payment}")
+    st.markdown(f"##### Monthly EMI (if needed): ₹{st.session_state.emi}")
     
     st.subheader("Monthly Payment Schedule")
     st.dataframe(st.session_state.df)
