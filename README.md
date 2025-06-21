@@ -1,26 +1,30 @@
-# EMI Calculator with Visualizations
+# EMI Calculator - Flat Interest Method
 
-This is a simple and interactive EMI calculator built using **Streamlit**. It calculates monthly loan EMIs, visualizes principal and interest breakdowns over time, and displays both monthly and yearly summaries.
+This is a **Streamlit-based EMI calculator** that uses the **flat interest loan method**, allowing users to:
+
+- Input loan parameters
+- Calculate EMI schedule
+- View monthly breakdown
+- Download schedules as Excel files
+- Visualize payment trends using **Plotly**
+
+---
 
 ## Features
 
-- Input loan amount, interest rate, and tenure (years + months)
-- EMI calculation
-- Monthly and yearly breakdown
-- Interactive charts using Plotly
-- Built with modular Python files
+-**Flat Interest Calculation** – Equal monthly principal + interest on remaining balance.
+-**Monthly Breakdown Table** – View EMI, principal, interest, and remaining balance.
+-**Interactive Chart** – Plotly line chart for monthly trends.
+-**Excel Download** – Export payment schedule.
 
-pip install -r requirements.txt
+---
 
+## Formula Used
 
-streamlit run app.py
+- **Monthly Principal** = Total Loan / Number of Months  
+- **Monthly Interest** = Remaining Balance × Monthly Interest Rate  
+- **Monthly Payment** = Principal + Interest  
 
+---
 
-emi-calculator/
-│
-├── app.py                  # Main Streamlit UI
-├── emi_calculator.py       # EMI logic (calculation + breakdown)
-├── emi_charts.py           # Plotly visualization functions
-├── requirements.txt
-└── README.md
 
