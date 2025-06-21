@@ -10,6 +10,19 @@ class FlatInterestLoanCalculator:
         self.monthly_principal = self.principal / self.tenure_months
         self.monthly_rate = self.rate_of_interest / (12 * 100)
 
+    def calculate_emi(self):
+            if self.monthly_rate == 0:
+                self.emi = self.principal / self.tenure_months
+            else:
+                self.emi = (
+                    self.principal
+                    * self.monthly_rate
+                    * (1 + self.monthly_rate) ** self.tenure_months
+                ) / ((1 + self.monthly_rate) ** self.tenure_months - 1)
+
+            
+            return round(self.emi, 2)
+        
     def calculate_schedule(self):
         balance = self.principal
         monthly_data = []
