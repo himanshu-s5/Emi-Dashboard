@@ -27,10 +27,10 @@ if "emi" in st.session_state:
     st.markdown(f"**Total Payment:** ₹{st.session_state.total_payment}")
     st.markdown(f"**Total Interest:** ₹{st.session_state.total_interest}")
 
-    st.subheader("📅 Monthly Breakdown")
+    st.subheader("Monthly Breakdown")
     st.dataframe(st.session_state.df_monthly)
     st.plotly_chart(plot_monthly_breakdown(st.session_state.df_monthly))
 
-    st.subheader("📆 Yearly Breakdown")
+    st.subheader("Yearly Breakdown")
     st.dataframe(st.session_state.df_yearly)
     st.plotly_chart(plot_yearly_breakdown(st.session_state.df_yearly))
